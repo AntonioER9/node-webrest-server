@@ -40,7 +40,6 @@ export class Server {
             res.sendFile(indexPath);
         })
 
-        // console.log('server running');
         this.app.listen(this.port, () => {
             console.log(`Server running on port ${this.port}`);
         })
