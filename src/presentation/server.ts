@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import compression from 'compression';
 import path from 'path';
 
 interface Options {
@@ -26,6 +27,7 @@ export class Server {
         //* Middlewares
         this.app.use(express.json()); //Si viene un body en la petición se serializa como un json
         this.app.use(express.urlencoded({extended: true})); // x-www-form-urlencoded
+        this.app.use(compression()); //Sirve para comprimir la response
 
         //* Public Folder
         this.app.use(express.static(this.publicPath));
